@@ -5,12 +5,12 @@ A demo app for poko payment on react native
 ## Installation
 
 ```sh
-npm install
+yarn
 ```
 
 ## Run development
 
 ```sh
-npm run android
-npm run ios
+yarn android
+yarn ios
 ```
