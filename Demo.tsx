@@ -52,8 +52,7 @@ function Section({children, title}: SectionProps): JSX.Element {
 }
 
 function Demo(): JSX.Element {
-  const {launchWidget, setApiKey, setEnv, setReceiveWalletAddress, setUserId} =
-    usePokoWidget();
+  const {launchWidget, setApiKey, setEnv, setUserId} = usePokoWidget();
   const [state, setState] = useState({
     apiKey: STAGING_API_KEY,
     walletAddress: '',
@@ -79,27 +78,20 @@ function Demo(): JSX.Element {
       signature?: string;
       providerId?: string;
       paymentMethodId?: string;
+      receiveWalletAddress?: string;
     }) => {
-      if (state.apiKey && state.userId && state.walletAddress) {
+      if (state.apiKey && state.userId) {
         setApiKey(state.apiKey);
         setUserId(state.userId);
-        setReceiveWalletAddress(state.walletAddress);
         setEnv(state.isStaging ? 'STAGING' : 'DEVELOPMENT');
 
         const urlLaunched = launchWidget(params);
         console.log('urlLaunched', urlLaunched);
       } else {
-        Alert.alert('Error', 'Missing info (apiKey, userId or wallet address)');
+        Alert.alert('Error', 'Missing info (apiKey, userId)');
       }
     },
-    [
-      launchWidget,
-      setApiKey,
-      setUserId,
-      setReceiveWalletAddress,
-      setEnv,
-      state,
-    ],
+    [launchWidget, setApiKey, setUserId, setEnv, state],
   );
 
   const handleSwitchMode = (status: boolean) => {
@@ -185,6 +177,7 @@ function Demo(): JSX.Element {
                     crypto: 'USDT-ethereum',
                     fiatAmount: 50,
                     strictMode: true,
+                    receiveWalletAddress: state.walletAddress,
                   })
                 }
                 title="50 USD - USDT (ethereum) - Strict mode"
@@ -197,6 +190,7 @@ function Demo(): JSX.Element {
                   handleLaunchWidget({
                     fiatList: ['VND', 'USD'],
                     cryptoList: ['USDT-ethereum', 'ETH-ethereum'],
+                    receiveWalletAddress: state.walletAddress,
                   })
                 }
                 title="fiatList, cryptoList"
@@ -208,6 +202,7 @@ function Demo(): JSX.Element {
                 onPress={() =>
                   handleLaunchWidget({
                     excludeProviderIds: ['transak'],
+                    receiveWalletAddress: state.walletAddress,
                   })
                 }
                 title="excludeProviderIds transak"
@@ -223,6 +218,7 @@ function Demo(): JSX.Element {
                     fiatAmount: 1000000,
                     providerId: 'transak',
                     paymentMethodId: 'credit_debit_card',
+                    receiveWalletAddress: state.walletAddress,
                   })
                 }
                 title="Direct to transak (card)"
