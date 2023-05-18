@@ -67,14 +67,26 @@ function Demo(): JSX.Element {
   };
 
   const handleLaunchWidget = useCallback(
-    async (fiat: string, crypto: string) => {
+    async (params: {
+      fiat?: string;
+      crypto?: string;
+      fiatAmount?: number;
+      cryptoAmount?: number;
+      strictMode?: boolean;
+      fiatList?: string[];
+      cryptoList?: string[];
+      excludeProviderIds?: string[];
+      signature?: string;
+      providerId?: string;
+      paymentMethodId?: string;
+    }) => {
       if (state.apiKey && state.userId && state.walletAddress) {
         setApiKey(state.apiKey);
         setUserId(state.userId);
         setReceiveWalletAddress(state.walletAddress);
         setEnv(state.isStaging ? 'STAGING' : 'DEVELOPMENT');
 
-        const urlLaunched = launchWidget({fiat, crypto});
+        const urlLaunched = launchWidget(params);
         console.log('urlLaunched', urlLaunched);
       } else {
         Alert.alert('Error', 'Missing info (apiKey, userId or wallet address)');
@@ -167,15 +179,53 @@ function Demo(): JSX.Element {
           <Section title="Test">
             <View style={{marginBottom: 12}}>
               <Button
-                onPress={() => handleLaunchWidget('VND', 'USDT-bsc')}
-                title="VND - USDT (bsc)"
+                onPress={() =>
+                  handleLaunchWidget({
+                    fiat: 'USD',
+                    crypto: 'USDT-ethereum',
+                    fiatAmount: 50,
+                    strictMode: true,
+                  })
+                }
+                title="50 USD - USDT (ethereum) - Strict mode"
               />
             </View>
 
             <View style={{marginBottom: 12}}>
               <Button
-                onPress={() => handleLaunchWidget('BRL', 'BNB-bsc')}
-                title="BRL - BNB (bsc)"
+                onPress={() =>
+                  handleLaunchWidget({
+                    fiatList: ['VND', 'USD'],
+                    cryptoList: ['USDT-ethereum', 'ETH-ethereum'],
+                  })
+                }
+                title="fiatList, cryptoList"
+              />
+            </View>
+
+            <View style={{marginBottom: 12}}>
+              <Button
+                onPress={() =>
+                  handleLaunchWidget({
+                    excludeProviderIds: ['transak'],
+                  })
+                }
+                title="excludeProviderIds transak"
+              />
+            </View>
+
+            <View style={{marginBottom: 12}}>
+              <Button
+                onPress={() =>
+                  handleLaunchWidget({
+                    fiat: 'VND',
+                    crypto: 'ETH-ethereum',
+                    fiatAmount: 1000000,
+                    providerId: 'transak',
+                    paymentMethodId: 'credit_debit_card',
+                  })
+                }
+                title="Direct to transak (card)"
               />
             </View>
           </Section>

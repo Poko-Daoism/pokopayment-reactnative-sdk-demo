@@ -1422,10 +1422,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@pokopayment/react-native-sdk@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@pokopayment/react-native-sdk/-/react-native-sdk-0.4.0.tgz#1f480d6e605cd52947364c8f550557d9c860e061"
-  integrity sha512-f+qEJuJUoIdixcy+4cxmRMijD0pn9z0AqD2nZyAJBgoLlZ/Q4jJZerdBmSqmxch/khYCzCFtcYpElL6yVwGgYg==
+"@pokopayment/react-native-sdk@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@pokopayment/react-native-sdk/-/react-native-sdk-0.5.0.tgz#3f166dc276dadb31273aeab21a99fda967cda8e0"
+  integrity sha512-DU3oYouzrUEUDY2D0SgHiBzYp+XQtpXl3ctya0BvpedOb9qn6UExNKw3RXyMzN1ZbXaaAnKfsG1tbwiKIK5ozQ==
   dependencies:
     react-native-webview "^11.26.1"
 
