@@ -1422,11 +1422,12 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@pokopayment/react-native-sdk@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@pokopayment/react-native-sdk/-/react-native-sdk-0.5.1.tgz#b8f3acf17c811fa3edccaaa51ceffd2802de19b1"
-  integrity sha512-eY+Wmq8c78028rbVtWsFThWyZb/0dnZxoIwubD5JG1EBxxhrnGjBvvuGqyHaYbvy3UzWFMRI5Ztb7ikv5QKu6w==
+"@pokopayment/react-native-sdk@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@pokopayment/react-native-sdk/-/react-native-sdk-0.6.0.tgz#4bf2545260769c021095cb2cacc2f7d6b785a63d"
+  integrity sha512-Vp+zetpOhtbA/m3B+5E0PG9BU+Xu/waV2frcobrsuOkN6nWZdHXUTEZzF2e6Q3XlgzxTpvMnNhggd8YeVzgZYw==
   dependencies:
+    react-native-permissions "^3.8.0"
     react-native-webview "^11.26.1"
 
 "@react-native-community/cli-clean@^10.1.1":
@@ -5576,6 +5577,18 @@ pkg-dir@^4.2.0:
   dependencies:
     find-up "^4.0.0"
 
+pkg-dir@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-5.0.0.tgz#a02d6aebe6ba133a928f74aec20bafdfe6b8e760"
+  integrity sha512-NPE8TDbzl/3YQYY7CSS228s3g2ollTFnc+Qi3tqmqJp9Vg2ovUpixcJEo2HJScN2Ez+kEaal6y70c0ehqJBJeA==
+  dependencies:
+    find-up "^5.0.0"
+
+pod-install@^0.1.38:
+  version "0.1.38"
+  resolved "https://registry.yarnpkg.com/pod-install/-/pod-install-0.1.38.tgz#1c16a800a5fc1abea0cafcc0e190f376368c76ab"
+  integrity sha512-NeDWGigjJRriOIKBOvpW2/tK2tYLfyUT7ia6C6L+oarCAhBNP+IGODWdU+GEAqvfsseqOApcFclpXAJTL0UPzA==
+
 posix-character-classes@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
@@ -5707,10 +5720,26 @@ react-native-gradle-plugin@^0.71.14:
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.71.14.tgz#cc399662f04fbfcc0e352d03eae1d3efbd5f635a"
   integrity sha512-nnLawTZEPPRAKq92UqDkzoGgCBl9aa9zAihFHMwmwzn4WRVdK4O6Cd4XYiyoNOiQzx3Hh9k5WOckHE80C92ivQ==
 
+react-native-permissions@^3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-3.8.0.tgz#7c1f75ae126c7d0b863eec9d2f5cd93ff8ad8310"
+  integrity sha512-BfZ7ksgdpGchHZH8M/kxCGZbWeACANbnPmb3hNjVOMDQusc4PWlPpobX3eBqYMSKbpi7bMECeV9BVU4QuwAf9A==
+  dependencies:
+    picocolors "^1.0.0"
+    pkg-dir "^5.0.0"
+
 react-native-webview@^11.26.1:
   version "11.26.1"
   resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-11.26.1.tgz#658c09ed5162dc170b361e48c2dd26c9712879da"
   integrity sha512-hC7BkxOpf+z0UKhxFSFTPAM4shQzYmZHoELa6/8a/MspcjEP7ukYKpuSUTLDywQditT8yI9idfcKvfZDKQExGw==
+  dependencies:
+    escape-string-regexp "2.0.0"
+    invariant "2.2.4"
+
+react-native-webview@^12.1.0:
+  version "12.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-12.1.0.tgz#fa77013f4606c56dbf60771500feb953f7a9bf6f"
+  integrity sha512-fuMyF4PBSIHHxv/3GgWO0LQbd7hRkLLDvZZIZw7gplSvH1YTahzw2wxnAt2K4Ua9UmsZ3w2MKgDamQCrdk4tdw==
   dependencies:
     escape-string-regexp "2.0.0"
     invariant "2.2.4"
